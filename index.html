@@ -8,21 +8,15 @@
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #020706;
-      color: #ffffff;
-    }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #020706; color: white; }
 
     .hero {
       min-height: 82vh;
       position: relative;
       overflow: hidden;
+      padding: 48px 8%;
       display: flex;
       align-items: center;
-      padding: 54px 8%;
       background: #020706;
     }
 
@@ -32,7 +26,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.5;
+      opacity: .48;
       z-index: 0;
     }
 
@@ -41,9 +35,7 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,.92), rgba(0,0,0,.52), rgba(0,0,0,.82)),
-        radial-gradient(circle at right, rgba(0,199,177,.22), transparent 36%);
+      background: linear-gradient(90deg, rgba(0,0,0,.92), rgba(0,0,0,.55), rgba(0,0,0,.85));
     }
 
     .logos {
@@ -56,24 +48,14 @@
       gap: 26px;
     }
 
-    .logos img {
-      max-height: 46px;
-      max-width: 250px;
-      width: auto;
-      display: block;
-    }
-
-    .divider {
-      width: 1px;
-      height: 42px;
-      background: rgba(255,255,255,.35);
-    }
+    .logos img { max-height: 46px; max-width: 250px; display: block; }
+    .divider { width: 1px; height: 42px; background: rgba(255,255,255,.35); }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 880px;
-      margin-top: 78px;
+      max-width: 900px;
+      margin-top: 70px;
     }
 
     .eyebrow, .section-label {
@@ -92,19 +74,30 @@
       letter-spacing: -3px;
     }
 
+    h2 {
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.05;
+      margin: 0 0 22px;
+      letter-spacing: -1px;
+    }
+
+    h3 { margin: 0 0 10px; color: #d8fffb; }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(255,255,255,.78);
+    }
+
     .subtitle {
       font-size: clamp(20px, 2vw, 28px);
       line-height: 1.35;
       color: rgba(255,255,255,.88);
-      max-width: 780px;
+      max-width: 790px;
       margin-bottom: 34px;
     }
 
-    .buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+    .buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 
     .btn {
       padding: 15px 26px;
@@ -114,23 +107,10 @@
       display: inline-block;
     }
 
-    .btn-primary {
-      background: #00c7b1;
-      color: #00110f;
-    }
+    .btn-primary { background: #00c7b1; color: #00110f; }
+    .btn-secondary { color: white; border: 1px solid rgba(255,255,255,.42); }
 
-    .btn-secondary {
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,.42);
-    }
-
-    section {
-      padding: 72px 8%;
-    }
-
-    .dark {
-      background: #020706;
-    }
+    section { padding: 72px 8%; background: #020706; }
 
     .grid-2 {
       display: grid;
@@ -140,7 +120,7 @@
     }
 
     .visual-card {
-      min-height: 380px;
+      min-height: 390px;
       border-radius: 28px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,.14);
@@ -148,67 +128,35 @@
       background: #071216;
     }
 
-    .visual-card img,
-    .visual-card video {
+    .visual-card img {
       width: 100%;
       height: 100%;
-      min-height: 380px;
+      min-height: 390px;
       object-fit: cover;
       display: block;
     }
 
-    h2 {
-      font-size: clamp(34px, 4vw, 56px);
-      line-height: 1.05;
-      margin: 0 0 22px;
-      letter-spacing: -1px;
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: rgba(255,255,255,.78);
-    }
-
-    .cards {
+    .steps, .cards, .faq {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-top: 34px;
     }
 
-    .card {
+    .steps { grid-template-columns: repeat(3, 1fr); }
+    .cards { grid-template-columns: repeat(3, 1fr); }
+    .faq { grid-template-columns: repeat(2, 1fr); }
+
+    .card, .step, .faq-item {
       background: rgba(0,199,177,.10);
       border: 1px solid rgba(0,199,177,.25);
       border-radius: 18px;
       padding: 22px;
-      min-height: 150px;
     }
 
-    .card h3 {
-      margin: 0 0 10px;
-      color: #d8fffb;
-      font-size: 20px;
-    }
-
-    .card p {
+    .card p, .step p, .faq-item p {
       margin: 0;
       font-size: 15px;
       color: rgba(255,255,255,.72);
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 34px;
-    }
-
-    .step {
-      padding: 24px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
     }
 
     .step-number {
@@ -219,57 +167,27 @@
     }
 
     .image-band {
-      min-height: 360px;
+      min-height: 390px;
       background:
-        linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.22)),
-        url("assets/TOWER%20PIC.png");
+        linear-gradient(90deg, rgba(0,0,0,.88), rgba(0,0,0,.35)),
+        url("assets/TOWERPIC.png");
       background-size: cover;
       background-position: center;
       display: flex;
       align-items: center;
     }
 
-    .image-band .inner {
-      max-width: 760px;
-    }
-
-    .faq {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 30px;
-    }
-
-    .faq-item {
-      border-radius: 18px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      padding: 22px;
-    }
-
-    .faq-item h3 {
-      margin: 0 0 10px;
-      color: #00c7b1;
-      font-size: 19px;
-    }
-
-    .faq-item p {
-      margin: 0;
-      font-size: 15px;
-    }
+    .image-band .inner { max-width: 950px; }
 
     .form-section {
       background:
         linear-gradient(rgba(0,0,0,.78), rgba(0,0,0,.94)),
-        url("assets/MOTORCYCLE%20BEAR%20PIC.png");
+        url("assets/MOTORCYCLEBEARPIC.png");
       background-size: cover;
       background-position: center;
     }
 
-    .form-wrap {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
+    .form-wrap { max-width: 1120px; margin: 0 auto; }
 
     form {
       margin-top: 34px;
@@ -295,14 +213,8 @@
       color: #111;
     }
 
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    .full {
-      grid-column: 1 / -1;
-    }
+    textarea { min-height: 110px; resize: vertical; }
+    .full { grid-column: 1 / -1; }
 
     .privacy {
       grid-column: 1 / -1;
@@ -338,11 +250,8 @@
       .logos { left: 24px; right: 24px; gap: 16px; }
       .logos img { max-height: 34px; max-width: 150px; }
       .divider { display: none; }
-
       section { padding: 54px 24px; }
-      .grid-2, .cards, .steps, .faq, form {
-        grid-template-columns: 1fr;
-      }
+      .grid-2, .steps, .cards, .faq, form { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -351,22 +260,19 @@
 
   <header class="hero">
     <video class="hero-video" autoplay muted loop playsinline>
-      <source src="assets/BEST%20VID.mp4" type="video/mp4">
+      <source src="assets/BESTVID.mp4" type="video/mp4">
     </video>
 
     <nav class="logos">
       <img src="assets/FXPRIMUS%20LOGO%20GREEN.svg" alt="FXPRIMUS logo">
       <span class="divider"></span>
-      <img src="assets/YB%20LOGO%20SVG.svg" alt="Your Bourse logo">
+      <img src="assets/YBLOGOSVG.svg" alt="Your Bourse logo">
     </nav>
 
     <div class="hero-content">
       <div class="eyebrow">FXPRIMUS x Your Bourse</div>
       <h1>The Market That Never Closes.</h1>
-      <div class="subtitle">
-        24/7 synthetic trading — now available on your platform through your existing Your Bourse bridge.
-      </div>
-
+      <div class="subtitle">24/7 synthetic trading — now available on your platform through your existing Your Bourse bridge.</div>
       <div class="buttons">
         <a href="#form" class="btn btn-primary">Book Partnership Call</a>
         <a href="#form" class="btn btn-secondary">Get the Commercial Deck</a>
@@ -374,16 +280,17 @@
     </div>
   </header>
 
-  <section class="dark grid-2">
+  <section class="grid-2">
     <div class="visual-card">
-      <img src="assets/COOL%20BEAR%20PIC.png" alt="FXPRIMUS synthetic indices visual">
+      <img src="assets/COOLBEARPIC.png" alt="Synthetic indices visual">
     </div>
 
     <div>
       <div class="section-label">The Problem</div>
       <h2>Most broker revenue stops Friday evening. Most emerging market traders start then.</h2>
       <p>
-        For 130 hours every week, most brokers have limited trading activity because traditional FX and CFD markets are closed, thin, or less attractive. Synthetic Indices give brokers an always-on product layer for the hours when clients still want to trade.
+        Traditional FX and CFD markets leave brokers with long inactive periods across weekends, holidays, and quieter sessions.
+        Synthetic Indices create an always-on product layer for traders who want movement outside standard market hours.
       </p>
     </div>
   </section>
@@ -397,126 +304,87 @@
         <div class="step">
           <div class="step-number">01</div>
           <h3>Connect via Your Bourse</h3>
-          <p>Delivered through the existing Your Bourse bridge, with no platform rebuild required.</p>
+          <p>Use your existing Your Bourse bridge connection with no platform rebuild required.</p>
         </div>
 
         <div class="step">
           <div class="step-number">02</div>
           <h3>Configure the product</h3>
-          <p>Set up instruments, spreads, leverage, and operating parameters for your brokerage.</p>
+          <p>Set instruments, spreads, leverage, and product conditions for your brokerage.</p>
         </div>
 
         <div class="step">
           <div class="step-number">03</div>
           <h3>Offer 24/7 trading</h3>
-          <p>Your clients trade synthetic indices under your brand, including weekends and public holidays.</p>
+          <p>Your clients trade synthetic indices under your brand, including weekends and holidays.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="dark">
+  <section>
     <div class="section-label">Client Benefits</div>
     <h2>What traders get.</h2>
 
     <div class="cards">
-      <div class="card">
-        <h3>24/7 Trading</h3>
-        <p>Clients can trade at any hour, including weekends and public holidays.</p>
-      </div>
-
-      <div class="card">
-        <h3>Weekend Trading</h3>
-        <p>Saturday and Sunday become full trading days, not dead zones.</p>
-      </div>
-
-      <div class="card">
-        <h3>Choose Volatility</h3>
-        <p>Traders can select instruments based on their preferred volatility profile.</p>
-      </div>
-
-      <div class="card">
-        <h3>Clean Execution</h3>
-        <p>Consistent trading conditions without traditional session-based deterioration.</p>
-      </div>
-
-      <div class="card">
-        <h3>No News Risk</h3>
-        <p>Prices are algorithmically generated and not driven by macro events or market news.</p>
-      </div>
-
-      <div class="card">
-        <h3>No Maintenance Gaps</h3>
-        <p>Pricing continuity helps avoid sudden gaps after infrastructure maintenance windows.</p>
-      </div>
+      <div class="card"><h3>24/7 Trading</h3><p>Clients can trade any hour, including weekends and public holidays.</p></div>
+      <div class="card"><h3>Weekend Trading</h3><p>Saturday and Sunday become active trading days, not dead zones.</p></div>
+      <div class="card"><h3>Choose Your Volatility</h3><p>Traders can select instruments based on their preferred volatility profile.</p></div>
+      <div class="card"><h3>Clean Execution</h3><p>Consistent trading conditions without traditional session-based deterioration.</p></div>
+      <div class="card"><h3>No News Risk</h3><p>Prices are algorithmically generated and not driven by macro events or market news.</p></div>
+      <div class="card"><h3>No Maintenance Gaps</h3><p>Pricing continuity helps avoid sudden gaps after infrastructure maintenance windows.</p></div>
     </div>
   </section>
 
-  <section class="dark grid-2">
+  <section class="grid-2">
     <div>
       <div class="section-label">Broker Benefits</div>
       <h2>What the broker is really buying.</h2>
-      <p>
-        Not just another feed. A faster route from deposits to revenue, stronger product differentiation, and an always-on trading layer for active retail markets.
-      </p>
+      <p>Not just another feed. A faster route from deposits to revenue, stronger product differentiation, and an always-on trading layer for active retail markets.</p>
 
       <div class="cards" style="grid-template-columns: 1fr;">
-        <div class="card">
-          <h3>Monetise 130 Silent Hours</h3>
-          <p>Create trading activity during evenings, weekends, and public holidays.</p>
-        </div>
-
-        <div class="card">
-          <h3>True Product Differentiation</h3>
-          <p>Offer a genuine 24/7 trading ecosystem while many competitors still rely on the same standard products.</p>
-        </div>
-
-        <div class="card">
-          <h3>IB & Client Growth</h3>
-          <p>Give IBs and active retail segments a product that is easier to explain, promote, and demonstrate.</p>
-        </div>
+        <div class="card"><h3>Monetise 130 Silent Hours</h3><p>Create trading activity during evenings, weekends, and public holidays.</p></div>
+        <div class="card"><h3>True Product Differentiation</h3><p>Offer a genuine 24/7 trading ecosystem while competitors rely on the same standard products.</p></div>
+        <div class="card"><h3>IB & Client Growth</h3><p>Give IBs and active retail audiences a product that is easier to explain, promote, and demonstrate.</p></div>
       </div>
     </div>
 
     <div class="visual-card">
-      <img src="assets/SYNTHETICS%20DUDE%20PIC.png" alt="Synthetic indices trading visual">
+      <img src="assets/SYNTHETICSDUDEPIC.png" alt="Synthetic indices trading visual">
     </div>
   </section>
 
-  <section class="dark">
+  <section class="grid-2">
+    <div class="visual-card">
+      <img src="assets/POLARBEARPIC.png" alt="Synthetic indices polar bear visual">
+    </div>
+
+    <div>
+      <div class="section-label">Market Opportunity</div>
+      <h2>Built for brokers targeting high-activity retail markets.</h2>
+      <p>
+        Synthetic Indices are especially relevant for brokers serving traders in Africa, Asia, LATAM, and other markets where clients are highly active outside traditional trading hours.
+      </p>
+    </div>
+  </section>
+
+  <section>
     <div class="section-label">FAQ</div>
     <h2>Quick answers for brokers.</h2>
 
     <div class="faq">
-      <div class="faq-item">
-        <h3>Is this regulated?</h3>
-        <p>The broker’s compliance team confirms the specifics for their licence. FXPRIMUS and Your Bourse can provide documentation to support the review.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>Is this gambling?</h3>
-        <p>No. These are algorithmically generated index CFDs, traded with standard market orders, stop losses, take profits, and live P&L.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>How long to activate?</h3>
-        <p>The product is delivered through the existing Your Bourse bridge, so there is no platform rebuild required.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>What are the economics?</h3>
-        <p>The commercial case depends on volume, product setup, and rollout model. Request the commercial deck for the full broker discussion.</p>
-      </div>
+      <div class="faq-item"><h3>Is this regulated?</h3><p>The broker’s compliance team confirms licence-specific requirements. FXPRIMUS and Your Bourse can support the review with product documentation.</p></div>
+      <div class="faq-item"><h3>Is this gambling?</h3><p>No. These are algorithmically generated index CFDs, traded with standard orders, stop losses, take profits, and live P&L.</p></div>
+      <div class="faq-item"><h3>How long to activate?</h3><p>The product is delivered through the existing Your Bourse bridge, so there is no platform rebuild required.</p></div>
+      <div class="faq-item"><h3>What are the economics?</h3><p>The commercial case depends on volume, rollout model, and product setup. Request the commercial deck for the full broker discussion.</p></div>
     </div>
   </section>
 
   <section id="form" class="form-section">
     <div class="form-wrap">
-      <div class="section-label">Get Started</div>
-      <h2>Book a partnership call.</h2>
-      <p>
-        Fill in the form below to request more information on the synthetic feed, commercial deck, broker setup process, and infrastructure requirements.
-      </p>
+      <div class="section-label">CTA</div>
+      <h2>Book Partnership Call.</h2>
+      <p>Fill in the form below to request the commercial deck and discuss the synthetic feed, setup process, and infrastructure requirements.</p>
 
       <form>
         <label>Name *<input type="text" required></label>
@@ -524,11 +392,11 @@
         <label>Role *<input type="text" required></label>
         <label>Email *<input type="email" required></label>
         <label>Country *<input type="text" required></label>
-        <label>Company Website<input type="text"></label>
         <label class="full">Message<textarea placeholder="Tell us what you would like to discuss."></textarea></label>
 
         <p class="privacy">
-          By submitting this form, you agree that FXPRIMUS and Your Bourse may contact you regarding this enquiry and related services. Final privacy, legal, and risk wording to be confirmed.
+          By submitting this form, you agree that FXPRIMUS and Your Bourse may contact you regarding this enquiry and related services.
+          Final privacy, legal, and risk wording to be confirmed.
         </p>
 
         <button type="submit">Submit</button>
