@@ -19,9 +19,20 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+/* ----------------------------------------------------------
+   FONT — currently Inter (clean, fintech-standard).
+   To swap, change BOTH the <link> in index.html AND the
+   font-family below. Easy alternatives:
+     'Manrope'          (geometric, slightly friendlier)
+     'DM Sans'          (clean, very neutral)
+     'Geist'            (Vercel's font, refined modern)
+     'Plus Jakarta Sans' (warm, modern)
+     'IBM Plex Sans'    (slightly technical feel)
+   ---------------------------------------------------------- */
+
 body {
   margin: 0;
-  font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-weight: 400;
   background: var(--bg);
   color: var(--text);
